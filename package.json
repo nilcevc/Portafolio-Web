@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "astro": "^5.12.8"
+    "astro": "^5.12.8",
+    "sweetalert2": "^11.22.3"
   }
 }

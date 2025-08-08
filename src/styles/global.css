@@ -83,7 +83,7 @@ h6{
 
 p, input, textarea, select, button {
     font-family: "Montserrat-Regular", sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 24px;
     letter-spacing: -0.006em;
     margin: 0;
@@ -231,6 +231,6 @@ button disable{
         font-size: 14px;
     }
     p, input, textarea, select, button {
-        font-size: 10px;
+        font-size: 12px;
     }
 }

@@ -13,6 +13,8 @@ import ScrollTop from "../components/ScrollTop.astro";
 import Socials from "../components/Socials.astro"
 import {getLangFromUrl, useTranslations} from "../i18n/utils";
 import 'aos/dist/aos.css';
+import { setupContactForm } from '../scripts/contactValidation.js';
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const images = [
@@ -32,10 +34,6 @@ const images = [
     "/img/carousel/image 40.svg",
     "/img/carousel/image 45.svg"
 ]
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
-//Hacer Index.es
 ---
 
 <Layout>
@@ -60,8 +58,8 @@ const images = [
                             <div class="timeline-fill"></div>
                         </div>
                         <div class="timeline-points">
-                            <img src={star.src}  data-aos="fade-in" class="star-left" width="30"/>
-                            <img src={star.src}  data-aos="fade-in" class="star-right" width="30"/>
+                            <img src={star.src} data-aos="fade-in" class="star-left" width="30"/>
+                            <img src={star.src} data-aos="fade-in" class="star-right" width="30"/>
                             <div class="point active" data-year="2025" data-index="0"></div>
                             <div class="point" data-year="2025" data-index="1"></div>
                             <div class="point" data-year="2024" data-index="2"></div>
@@ -130,7 +128,9 @@ const images = [
                                 <h6> C#, .NET, SQL Server, HTML, CSS, Google Maps API, Azure</h6>
                                 <p>{t('projects.project4')}</p>
                                 <!--Poner flechita-->
-                                <button>{t('projects.project4.button')}</button>
+                                <a target="_blank" href="https://github.com/Getz7/ProyectoExpoCenfo.git">
+                                    <button>{t('projects.project4.button')}</button>
+                                </a>
                             </div>
                             <div class="project-img">
                                 <img src={petsInn.src}/>
@@ -297,6 +297,9 @@ const images = [
 </Layout>
 
 <script>
+    window.addEventListener('hashchange', () => {
+        history.replaceState(null, null, ' ');
+    });
     import AOS from "aos";
 
     AOS.init({
@@ -310,35 +313,80 @@ const images = [
         autoplay: true,
         path: '/img/Empty Notifications.json'
     });
-    document.addEventListener('DOMContentLoaded', function () {
+
+    document.addEventListener('DOMContentLoaded', () => {
         const points = document.querySelectorAll('.point');
         const projects = document.querySelectorAll('.project');
         const timelineFill = document.querySelector('.timeline-fill');
+        const starLeft = document.querySelector('.star-left');
+        const starRight = document.querySelector('.star-right');
+        const timelineContainer = document.querySelector('.timeline-container');
 
-        // Función para cambiar de proyecto
+        let currentIndex = 0;
+        const maxIndex = points.length - 1;
+        const intervalTime = 5000;
+        let autoInterval;
+
         function showProject(index) {
-            // Remover clase 'active' de todos los puntos y proyectos
+            if (index < 0) index = maxIndex;
+            if (index > maxIndex) index = 0;
+
+            currentIndex = index;
+
             points.forEach(point => point.classList.remove('active'));
             projects.forEach(project => project.classList.remove('active'));
 
-            // Añadir clase 'active' al punto y proyecto seleccionados
-            points[index].classList.add('active');
-            projects[index].classList.add('active');
+            points[currentIndex].classList.add('active');
+            projects[currentIndex].classList.add('active');
 
-            // Actualizar la línea de progreso
-            timelineFill.style.width = `${index * (100 / (points.length - 1))}%`;
+            timelineFill.style.width = `${(currentIndex * 100) / maxIndex}%`;
         }
 
-        // Evento click para los puntos del timeline
+        function startAuto() {
+            stopAuto(); // evitar intervalos duplicados
+            autoInterval = setInterval(() => {
+                showProject(currentIndex + 1);
+            }, intervalTime);
+        }
+
+        function stopAuto() {
+            clearInterval(autoInterval);
+        }
+
+        // Click en puntos
         points.forEach(point => {
-            point.addEventListener('click', function () {
-                const index = parseInt(this.getAttribute('data-index'));
+            point.addEventListener('click', () => {
+                stopAuto();
+                const index = parseInt(point.getAttribute('data-index'));
                 showProject(index);
+                startAuto();
             });
         });
 
-        // Inicializar con el primer proyecto activo
+        // Click en estrellas
+        starLeft.addEventListener('click', () => {
+            stopAuto();
+            showProject(currentIndex - 1);
+            startAuto();
+        });
+
+        starRight.addEventListener('click', () => {
+            stopAuto();
+            showProject(currentIndex + 1);
+            startAuto();
+        });
+
+        // Pausar con hover
+        timelineContainer.addEventListener('mouseenter', stopAuto);
+        timelineContainer.addEventListener('mouseleave', startAuto);
+
+        // Iniciar
         showProject(0);
+        startAuto();
     });
+
+    import { setupContactForm } from '../scripts/contactValidation.js';
+    setupContactForm();
+
 </script>
 

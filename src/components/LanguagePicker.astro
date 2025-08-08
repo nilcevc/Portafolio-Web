@@ -35,18 +35,15 @@ const route = getRouteFromUrl(Astro.url);
         cursor: pointer;
     }
 
-    #lang-icon:hover{
-        fill: #2AFFAB;
-    }
-
     #lang-menu {
+        padding: 0.5rem 0;
+        text-align: end;
         position: absolute;
         top: 2.5rem;
         right: 10px;
         background-color: rgba(255 255 255 / 0.9);
         border-radius: 8px;
-        width: 150px;
-        padding: 0.5rem 0;
+        width: 160px;
         z-index: 20;
         list-style: none;
         margin: 0;
@@ -60,8 +57,8 @@ const route = getRouteFromUrl(Astro.url);
     }
 
     #lang-menu li:hover {
+        color: #F35889;
         transition: all 0.2s linear ;
-        background: rgba(42, 255, 171, 0.24);
     }
 
     .hidden {
