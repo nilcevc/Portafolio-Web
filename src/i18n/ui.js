@@ -1,0 +1,106 @@
+export const languages = {
+    en: 'en',
+    es: 'es',
+};
+
+export const defaultLanguage = 'en';
+
+export const routes = {
+    en: {
+        'welcome': '/',
+    },
+    es: {
+        'welcome': '/',
+    },
+}
+
+export const ui = {
+    en: {
+        // Nav
+        'nav.start': 'Home',
+        'nav.project': 'Projects',
+        'nav.abilities': 'Abilities',
+        'nav.education': 'Education',
+        'nav.contact': 'Contact',
+        'nav.download': 'Download CV',
+        'nav.cv': 'CV-en.pdf',
+        //landing
+        'hero.title': 'Your vision, my inspiration',
+        'hero.aboutMe': 'Full-stack software developer specializing in creating functional, intuitive, and visually compelling interfaces. With experience in technologies such as HTML, CSS, JavaScript, Java, Node.js, Astro, React, Spring Boot, Git, and relational and non-relational database management.',
+        'projects.title': 'Projects',
+        'projects.description': 'A sample of projects in which I have actively participated, combining design, development and creativity.',
+        'projects.project1': 'Logo redesign, web design, and development of a multi-page platform for a travel agency, featuring a fully responsive design focused on user experience. The platform will allow visitors to search and filter tours, view detailed information, and book with an online payment option (gateway integration under evaluation). Reusable components will be implemented with React and TypeScript, streamlining project development and maintenance. Content will be managed through Strapi, allowing administrators to easily create, edit, and delete information. It will also feature sections such as About Us and Contact, SEO optimization with Next.js, and clear and fluid navigation to maximize reach and conversions.',
+        'projects.project2': 'Logo design, web design, and development of an app for selling custom pots, including sections with questions and care and watering tips. Implementation of Google authentication and AI integration for queries. The platform allows registered users to buy, create, and sell custom pots, and also features Dr. Plant, an intelligent chat that diagnoses diseases and provides plant care based on images. A user management system was developed with roles (user, artist, and administrator), each with specific permissions: the user can view, add to cart, and purchase pots via PayPal, the artist can design and save their creations. The OpenStreetMap API was also integrated to display nearby nurseries.',
+        'projects.project3': 'Web design, and development of an online souvenir store, creating an engaging and functional landing page using the Astro framework for the project structure and design. Implementation of reusable components with HTML, CSS, and JavaScript, providing an interactive user interface. Use of React for some dynamic components, improving the customer experience, and integration of the Alegra external API for displaying and managing online product catalog data, facilitating efficient inventory updates and management.',
+        'projects.project4': 'Logo design, web design, and development of a web application for pet boarding and transportation management. Secure authentication with encrypted passwords and data storage in SQL Server were implemented. The platform allowed owners to register and manage their pets\' information, request boarding and transportation services, and control schedules, dates, and prices. A service management system was integrated, allowing users to view, add, and delete information organized by pet. Additionally, the Google Maps API was incorporated for location tracking and an image management module.',
+        'projects.project1.button': 'On going',
+        'projects.project2.button': 'Repository',
+        'projects.project3.button': 'Web site',
+        'projects.project4.button': 'Repository',
+        'abilities.title': 'Abilities',
+        'abilities.description': 'In addition to my technical knowledge, I possess interpersonal skills such as collaboration, empathy, clear communication, and conflict resolution. I enjoy contributing creative ideas, maintaining careful attention to detail, and adapting to the needs of both the team and the client to achieve effective solutions.',
+        'abilities.bento1': 'Languages',
+        'abilities.bento2': 'Libraries',
+        'abilities.bento3': 'Frameworks',
+        'abilities.bento4': 'Data base',
+        'abilities.bento5': 'Design tools',
+        'abilities.bento6': 'IDE´s',
+        'abilities.other': 'Other knowledge',
+        'education.title': 'Education',
+        'education.description': 'In addition to completing high school, I earned a technology proficiency certificate specializing in advertising design, where I gained knowledge in using Adobe applications. I\'m currently pursuing a degree in Software Engineering.',
+        'education.technical': 'Technical',
+        'education.certificate': 'Certificate',
+        'education.card.title1': 'Web Design and Development',
+        'education.card.title2': 'Software engineering',
+        'education.card.title3': 'English B2',
+        'contact.title': 'Contact',
+        'contact.input': 'Email',
+        'contact.textarea': 'Message',
+        'contact.button': 'Send',
+    },
+    es: {
+        // Nav
+        'nav.start': 'Inicio',
+        'nav.project': 'Proyectos',
+        'nav.abilities': 'Habilidades',
+        'nav.education': 'Educación',
+        'nav.contact': 'Contacto',
+        'nav.download': 'Descargar CV',
+        'nav.cv': 'CV-es.pdf',
+        //landing
+        'hero.title': 'Tu visión, mi inspiración',
+        'hero.aboutMe': 'Desarrolladora en software Full-Stack, especializada en la creación de interfaces funcionales, intuitivas y visualmente atractivas. Con experiencia en tecnologías como HTML, CSS, JavaScript, Java, Node.js, Astro, React, Spring Boot, Git y manejo de bases de datos relacionales y no relacionales.',
+        'projects.title': 'Proyectos',
+        'projects.description': 'Una muestra de proyectos en los que he participado activamente, combinando diseño, desarrollo y creatividad.',
+        'projects.project1': 'Rediseño del logotipo, diseño web y desarrollo de una plataforma multipágina para una agencia de viajes, con un diseño totalmente responsive y enfocado en la experiencia del usuario. La plataforma permitirá a los visitantes buscar y filtrar tours, visualizar información detallada y reservar con opción de pago en línea (integración de pasarela en evaluación). Se implementarán componentes reutilizables con React y TypeScript, optimizando el desarrollo y mantenimiento del proyecto. El contenido será gestionado mediante Strapi, permitiendo al administrador crear, editar y eliminar información de forma sencilla. Además, contará con secciones como About Us y Contacto, optimización SEO con Next.js y una navegación clara y fluida para maximizar el alcance y la conversión.',
+        'projects.project2': 'Diseño de logotipo, diseño web y desarrollo de una aplicación para la venta de macetas personalizadas, incluyendo secciones con preguntas y consejos de cuidado y riego. Implementación de autenticación con Google e integración de IA para consultas. La plataforma permite a los usuarios registrados comprar, crear y vender macetas personalizadas, además de contar con Dr. Plant, un chat inteligente que diagnostica enfermedades y brinda cuidados para las plantas a partir de imágenes. Se desarrolló un sistema de gestión de usuarios con roles (usuario, artista y administrador), donde cada uno tiene permisos específicos: el usuario puede visualizar, agregar al carrito y comprar macetas mediante PayPal; el artista puede diseñar y guardar sus creaciones; y el administrador cuenta con acceso total a la plataforma. También se integró la API de OpenStreetMap para mostrar viveros cercanos.',
+        'projects.project3': 'Diseño web, desarrollo de una tienda en línea de souvenirs con la creación de un landing page atractivo y funcional utilizando del framework Astro para la estructura y diseño del proyecto. Implementación de componentes reutilizables con HTML, CSS y JavaScript, proporcionando una interfaz de usuario interactiva. Uso de React para algunos componentes dinámicos, mejorando la experiencia del cliente, integración de la API externa Alegra para la visualización y gestión de los datos del catálogo de productos en línea, facilitando la actualización y administración eficiente del inventario.',
+        'projects.project4': 'Diseño de logo, diseño web, desarrollo de una aplicación web para la gestión de hospedaje y transporte de mascotas. Implementación de autenticación segura con contraseñas encriptadas y almacenamiento de datos en SQL Server. La plataforma permitía a los dueños registrar y administrar la información de sus mascotas, solicitar servicios de hospedaje y transporte con control de horarios, fechas y precios. Se integró un sistema de gestión de servicios, permitiendo a los usuarios visualizar, agregar y eliminar información organizada por mascota. Además, se incorporó Google Maps API para la localización y un módulo para la gestión de imágenes.',
+        'projects.project1.button': 'En curso',
+        'projects.project2.button': 'Repositorio',
+        'projects.project3.button': 'Sitio web',
+        'projects.project4.button': 'Repositorio',
+        'abilities.title': 'Habilidades',
+        'abilities.description': 'Además de mis conocimientos técnicos, poseo habilidades interpersonales como la colaboración, empatía, comunicación clara y resolución de conflictos. Me gusta aportar ideas creativas, mantener una atención cuidadosa a los detalles y adaptarme a las necesidades tanto del equipo como del cliente para lograr soluciones efectivas.',
+        'abilities.bento1': 'Lenguajes',
+        'abilities.bento2': 'Librerías',
+        'abilities.bento3': 'Frameworks',
+        'abilities.bento4': 'Base de datos',
+        'abilities.bento5': 'Herramientas de diseño',
+        'abilities.bento6': 'IDEs',
+        'abilities.other': 'Otros conocimientos',
+        'education.title': 'Educación',
+        'education.description': 'Además de haber completado el bachillerato en educación media, obtuve un certificado de aprovechamiento en tecnología, especializado en diseño publicitario, donde adquirí conocimientos en el manejo de aplicaciones Adobe. Actualmente, curso la carrera de Ingeniería de Software.',
+        'education.technical': 'Tecnico',
+        'education.certificate': 'Certificado',
+        'education.card.title1': 'Diseño y Desarrollo Web',
+        'education.card.title2': 'Ingeniería de Software',
+        'education.card.title3': 'Inglés B2',
+        'contact.title': 'Contact',
+        'contact.input': 'Correo',
+        'contact.textarea': 'Mensaje',
+        'contact.button': 'Enviar',
+    },
+};
+
+export const showDefaultLang = false;

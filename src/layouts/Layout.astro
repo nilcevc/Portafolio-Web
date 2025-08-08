@@ -1,3 +1,7 @@
+---
+import NavBar from "../components/NavBar.astro";
+import "../styles/global.css"
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,10 +9,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Portafolio</title>
+        <script src="https://unpkg.com/lottie-web@5.12.0/build/player/lottie.min.js"></script>
+        <title>Portafolio</title>
 	</head>
-	<body>
-		<slot />
+    <body>
+        <NavBar/>
+        <slot />
 	</body>
 </html>
 
@@ -20,7 +26,8 @@
 		height: 100%;
         color: #222222;
         background-color: #F6F4F0;
-        backdrop-filter: blur(80px);
+        font-family: "Montserrat-Regular", sans-serif;
+        scroll-behavior: smooth;
 
-	}
+    }
 </style>

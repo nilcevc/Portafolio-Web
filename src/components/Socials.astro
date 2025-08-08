@@ -1,0 +1,28 @@
+---
+import Arrow from "../assets/socials/Arrow.svg"
+import Github from "../assets/socials/github.svg"
+import LinkedIn from "../assets/socials/linkedin.svg"
+import Whatsapp from "../assets/socials/whatsapp.svg"
+---
+
+<div class="socials">
+    <a href="https://www.linkedin.com/in/nilce-vila-53231a238/" target="_blank" rel="noopener noreferrer">
+        <img src={LinkedIn.src}/>
+    </a>
+    <a href="https://github.com/nilcevc" target="_blank" rel="noopener noreferrer">
+        <img src={Github.src}/>
+    </a>
+    <a href="https://wa.me/50688306278" target="_blank" rel="noopener noreferrer">
+        <img src={Whatsapp.src}/>
+    </a>
+    <img src={Arrow.src}/>
+</div>
+
+<style>
+    .socials{
+        position: fixed;
+        bottom: -4px;
+        left: 30px;
+        width: 1rem;
+    }
+</style>

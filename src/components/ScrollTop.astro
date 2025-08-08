@@ -1,0 +1,51 @@
+---
+import ArrowUp from "../assets/ArrowUp.svg"
+---
+
+<button id="scroll-top">
+    <img src={ArrowUp.src}>
+</button>
+
+<script>
+    window.addEventListener('DOMContentLoaded', ()=>{
+        const topBtn = document.getElementById('scroll-top');
+
+        window.addEventListener('scroll', ()=>{
+            if (window.scrollY > 1000) {
+                topBtn.classList.add('show');
+            } else {
+                topBtn.classList.remove('show');
+            }
+        });
+        topBtn.addEventListener('click', ()=>{
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<style>
+    #scroll-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: transparent;
+        color: #f49c35;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        font-size: 20px;
+        width: 1rem;
+    }
+
+    #scroll-top.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+</style>

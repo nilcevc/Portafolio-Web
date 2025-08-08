@@ -1,17 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import shiny from "../assets/shiny.svg";
-import logo from "../assets/logo.svg";
-import star from "../assets/star.svg";
-import bgCat from "../assets/bg-cat.svg";
-import baula from "../assets/projects/baula.svg";
-import blooming from "../assets/projects/blooming.svg";
-import petsInn from "../assets/projects/petsInn.svg";
-import syl from "../assets/projects/syl.svg";
-import '../styles/home.css';
-import ScrollTop from "../components/ScrollTop.astro";
-import Socials from "../components/Socials.astro"
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Layout from '../../layouts/Layout.astro';
+import shiny from "../../assets/shiny.svg";
+import logo from "../../assets/logo.svg";
+import star from "../../assets/star.svg";
+import bgCat from "../../assets/bg-cat.svg";
+import baula from "../../assets/projects/baula.svg";
+import blooming from "../../assets/projects/blooming.svg";
+import petsInn from "../../assets/projects/petsInn.svg";
+import syl from "../../assets/projects/syl.svg";
+import '../../styles/home.css';
+import ScrollTop from "../../components/ScrollTop.astro";
+import Socials from "../../components/Socials.astro"
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const images = [

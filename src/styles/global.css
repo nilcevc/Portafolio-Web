@@ -1,0 +1,214 @@
+@font-face {
+    font-family: "Montserrat-SemiBold";
+    src: url("/font/Montserrat-SemiBold.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat-Medium";
+    src: url("/font/Montserrat-Medium.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat-Light";
+    src: url("/font/Montserrat-Light.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Montserrat-Regular";
+    src: url("/font/Montserrat-Regular.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MuseoModerno-Light";
+    src: url("/font/MuseoModerno-Light.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "MuseoModerno-Medium";
+    src: url("/font/MuseoModerno-Medium.ttf") format('opentype');
+    font-style: normal;
+    font-display: swap;
+}
+
+h1{
+    font-family: "MuseoModerno-Medium", sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0.83em 0;
+}
+
+h2 {
+    font-family: "MuseoModerno-Light", sans-serif;
+    font-size: 36px;
+    color: #EF2868;
+    margin: 0;
+}
+
+h3{
+    font-family: "Montserrat-Bold", sans-serif;
+    font-size: 32px;
+    margin: 0;
+    padding: 0.4rem 0;
+}
+
+h4{
+    font-family: "Montserrat-SemiBold", sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 10px 0 10px 15px;
+}
+
+h5{
+    font-family: "Montserrat-Bold", sans-serif;
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+h6{
+    font-family: "Montserrat-Light", sans-serif;
+    font-size: 10px;
+    margin: 0;
+}
+
+p, input, textarea, select, button {
+    font-family: "Montserrat-Regular", sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    margin: 0;
+}
+
+a{
+    cursor: pointer;
+    color: #222;
+    text-decoration: none;
+}
+
+button{
+    cursor: pointer;
+    color: #F6F4F0;
+    background-color: #F35889;
+    padding: 3px 0;
+    width: 7rem;
+    position: relative;
+    isolation: isolate;
+    transition: color 0.3s ease-in-out;
+    z-index: 1;
+    --border-width: 2px;
+    --radius: 4px;
+    border-radius: var(--radius);
+    border: var(--border-width) solid transparent;
+}
+
+.disable{
+    background-color: rgba(34, 34, 34, 0.45);
+}
+
+.disable:hover{
+    animation: none;
+    background-color: rgba(34, 34, 34, 0.45);
+    color: #F6F4F0;
+    cursor: no-drop;
+}
+
+.disable:hover::before{
+    animation: none;
+    border: none;
+}
+
+button:hover::before {
+    content: " ";
+    position: absolute;
+    inset: calc(var(--border-width) * -1);
+    z-index: 0;
+    border: inherit;
+    border-radius: inherit;
+    background-image: conic-gradient(
+        from var(--angle),
+        #222222 80%,
+        #F6F4F0 88%,
+        #F6F4F0 92%,
+        #222222 100%);
+    background-origin: border-box;
+    /*-webkit-mask:*/
+    /*        linear-gradient(black, black) content-box,*/
+    /*        linear-gradient(black, black);*/
+    mask: linear-gradient(black, black),
+    linear-gradient(black, black);
+    /*-webkit-mask-clip: content-box, border-box;*/
+    mask-clip: content-box, border-box;
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: spin 2s linear infinite;
+}
+
+button:hover::before {
+    opacity: 1;
+    animation: spin 3s linear infinite;
+}
+
+/* === Animación del ángulo === */
+@property --angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+}
+
+@keyframes spin {
+    to {
+        --angle: 1turn;
+    }
+}
+
+/*@supports not (background: paint(something)) {*/
+/*    button::before {*/
+/*        background-image: conic-gradient(*/
+/*                #EF2868 80%,*/
+/*                #F6F4F0 88%,*/
+/*                #F6F4F0 92%,*/
+/*                #EF2868 100%*/
+/*        );*/
+/*    }*/
+/*    button:hover::before {*/
+/*        animation: spinFallback 3s linear infinite;*/
+/*    }*/
+/*}*/
+
+@keyframes spinFallback {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+button:hover {
+    color: #222222;
+    background-color: transparent;
+}
+
+button disable{
+    color: #F6F4F0;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #2AFFAB;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: #F35889;
+}

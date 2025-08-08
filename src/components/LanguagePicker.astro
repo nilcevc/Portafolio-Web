@@ -1,0 +1,86 @@
+---
+import { languages } from "../i18n/ui";
+import { useTranslatedPath } from "../i18n/utils";
+import { getLangFromUrl, getRouteFromUrl } from "../i18n/utils";
+import languageSolidFull from '../assets/language-solid-full.svg'
+
+const availableLanguages = Object.entries(languages).filter(([lang, label]) => lang != getLangFromUrl(Astro.url));
+const { fullName, ...rest } = Astro.props;
+
+const translatePath = useTranslatedPath();
+const route = getRouteFromUrl(Astro.url);
+---
+
+<div class="lang-switch">
+    <img id="lang-icon" src={languageSolidFull.src} width="20rem" alt="Cambiar idioma" />
+    <ul id="lang-menu" class="hidden">
+        {
+            availableLanguages.map(([lang, label]) => (
+                <a href={translatePath(`/${route ? route : ''}`, lang)} {...rest}>
+                    <li>{fullName ? label : lang}</li>
+                </a>
+            ))
+        }
+    </ul>
+</div>
+
+<style>
+    .lang-switch {
+        position: relative;
+        display: inline-block;
+    }
+
+    #lang-icon {
+        padding: 0 20px;
+        cursor: pointer;
+    }
+
+    #lang-icon:hover{
+        fill: #2AFFAB;
+    }
+
+    #lang-menu {
+        position: absolute;
+        top: 30px;
+        right: 1rem ;
+        background: white;
+        list-style: none;
+        padding: 5px 0;
+        margin: 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        min-width: 100px;
+        color: #222222;
+    }
+
+    #lang-menu li {
+        padding: 6px 10px;
+        cursor: pointer;
+    }
+
+    #lang-menu li:hover {
+        transition: all 0.2s linear ;
+        background: rgba(42, 255, 171, 0.24);
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const langIcon = document.getElementById("lang-icon");
+        const langMenu = document.getElementById("lang-menu");
+
+        langIcon.addEventListener("click", () => {
+            langMenu.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!e.target.closest(".lang-switch")) {
+                langMenu.classList.add("hidden");
+            }
+        });
+    });
+</script>

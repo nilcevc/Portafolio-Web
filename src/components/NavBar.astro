@@ -1,3 +1,98 @@
-<div>
-    <p>hola</p>
-</div>
+---
+import navLogo from '../assets/navLogo.svg'
+import LanguagePicker from "../components/LanguagePicker.astro"
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils"
+let currentPath = new URL(Astro.request.url).pathname
+currentPath = currentPath.endsWith('/') ? currentPath : currentPath + '/';
+const currentLang = getLangFromUrl(Astro.url)
+const t = useTranslations(currentLang)
+
+---
+<header>
+    <nav>
+        <div class="left-info">
+            <img src={navLogo.src} alt="logo" width="90rem"/>
+            <div class="options">
+                <a href="#hero">{t("nav.start")}</a>
+                <a href="#projects">{t("nav.project")}</a>
+                <a href="#abilities">{t("nav.abilities")}</a>
+                <a href="#education">{t("nav.education")}</a>
+                <a href="#contact">{t("nav.contact")}</a>
+            </div>
+        </div>
+        <div class="right-info">
+            <a href=`/cv/${t('nav.cv')}` download><button>{t("nav.download")}</button></a>
+            <LanguagePicker/>
+        </div>
+    </nav>
+</header>
+
+<style>
+    header{
+        backdrop-filter: blur(35px);
+        position: fixed;
+        top: 0;
+        z-index: 5;
+        width: 100%;
+    }
+
+    nav{
+        font-size: 12px;
+        color: #222;
+        padding: 15px 0;
+        width: 100%;
+        display: flex;
+        font-family: "MuseoModerno-Light", sans-serif;
+
+    }
+
+    .left-info{
+        width: 70%;
+        display: flex;
+    }
+
+    .left-info a:hover{
+        color: #F35889;
+        transition: all cubic-bezier(1,0,0,1)
+    }
+
+
+    .left-info img, .right-info img{
+        padding: 0 20px;
+    }
+
+    .options{
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    .options a{
+        margin:0 1rem;
+    }
+
+    .right-info{
+        width: 30%;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+</style>
+
+<script>
+    // document.addEventListener("DOMContentLoaded", () => {
+    //     const langIcon = document.getElementById("lang-icon");
+    //     const langMenu = document.getElementById("lang-menu");
+    //
+    //     langIcon.addEventListener("click", () => {
+    //         langMenu.classList.toggle("hidden");
+    //     });
+    //
+    //     document.addEventListener("click", (e) => {
+    //         if (!e.target.closest(".lang-switch")) {
+    //             langMenu.classList.add("hidden");
+    //         }
+    //     });
+    // });
+</script>
