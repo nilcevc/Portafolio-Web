@@ -15,9 +15,24 @@ main {
 
 .shiny{
     display: flex;
-    width: 50%;
+    width: 100%;
     justify-content: end;
     align-items: flex-end;
+    margin-left: auto; /* para que se pegue a la derecha */
+}
+
+.logo-hero {
+    max-width: 90%;
+    height: auto;
+    flex-shrink: 1; /* para que las imágenes se reduzcan si falta espacio */
+}
+
+figure{
+    margin-right: 0;
+}
+
+.logo-hero{
+    /*width: 50rem;*/
 }
 
 #hero, #projects, #abilities, #education, #contact {
@@ -33,10 +48,13 @@ main {
 }
 
 #hero {
+    text-align: end;
     background-image: url("/img/bg-inicio.png");
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 100dvh;
+    background-size: cover;
+    background-position: bottom center;
+    padding-top: 15rem;
+    padding-bottom: 15rem;
     display: flex;
     align-items: end;
     flex-direction: column;
@@ -157,7 +175,6 @@ main {
     height: 300px;
     overflow: hidden;
     border-radius: 10px;
-    background-color: #2AFFAB;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -186,7 +203,7 @@ main {
 #abilities{
     background-image: url("../assets/bgAbilities.svg");
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: center;
     padding-bottom: 8rem;
 
 }
@@ -215,6 +232,7 @@ main {
 
 .bento-info{
     padding-left: 25px;
+    padding-right: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -263,7 +281,6 @@ main {
     }
 
 }
-
 
 .carousel{
     width: 55%;
@@ -323,7 +340,6 @@ main {
     box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 1px;
     display: flex;
     border-radius: 4px;
-
 }
 
 .card .left{
@@ -356,7 +372,7 @@ main {
     display: flex;
     margin: 0 auto;
     padding: 2rem 5rem;
-    gap: 5rem;
+    gap: 3.5rem;
     align-items: center;
     border-radius: 10px 0;
 }
@@ -390,21 +406,6 @@ main {
     border-color: #2AFFAB;
 }
 
-#contact-form p {
-    margin-top: 1rem;
-    font-size: 1rem;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-#contact-form p::before {
-    content: '@';
-    color: #2AFFAB;
-    font-weight: bold;
-}
-
 #cat {
     flex: 1;
     display: flex;
@@ -420,9 +421,98 @@ main {
     margin-top: 1rem;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 400px) {
+    #hero h2{
+        font-size: 26px;
+    }
+
+    .star-right{
+        right: -20%;
+    }
+
+    .star-left{
+        left: -20%;
+    }
+
+    .card .left{
+        padding: 2rem 3rem 1rem 1rem;
+        width: 2rem;
+    }
+
+    .card .right{
+        padding: 2rem 4rem 1rem 0.5rem;
+        width: 7rem;
+    }
+
     .contact-container {
-        flex-direction: column;
+        padding: 0 !important;
+    }
+
+    #contact-form, #cat {
+        width: 80% !important;
+    }
+    #cat img {
+        position: absolute;
+        width: 15rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .paragraph{
+        width: 100% !important;
+    }
+
+    .shiny figure img{
+        display: none;
+    }
+    .contact-container {
+        padding: 0 2rem;
+        margin: 0;
+    }
+
+    #contact-form input, #contact-form textarea {
+        width: auto;
+    }
+}
+@media screen and (max-width: 700px) {
+    #hero, #projects, #abilities, #education, #contact {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+}
+@media screen and (max-width: 730px) {
+    .bento-container {
+        grid-template-areas:
+        "box1 box2"
+        "box1 box3"
+        "box4 box6"
+        "box5 box5";
+    }
+
+    .carousel{
+        width: 100%;
+        height: 2rem;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .technologies img{
+        height: 1.5rem;
+        width: auto;
+    }
+
+    .carousel .carousel-track{
+        width: calc(250px * 8);
+    }
+
+}
+@media screen and (max-width: 800px) {
+    .paragraph{
+        width: 50%;
+    }
+    .contact-container {
+        flex-direction: column-reverse;
+        gap: 1rem;
     }
 
     #contact-form, #cat {
@@ -434,10 +524,26 @@ main {
     }
 }
 
-@media screen and (max-height: 368px) {
 
-}
 
-@media screen and (max-width: 1080px) {
+/*@media screen and (max-width: 860px) {*/
+/*    .logo-hero{*/
+/*        width: 30rem !important;*/
+/*    }*/
+/*}*/
 
+@media screen and (max-width: 980px) {
+    .project.active{
+        flex-direction: column-reverse;
+    }
+    .project-text{
+        padding-right: 0;
+    }
+
+    .project-img{
+        flex: none;
+        width: 100%;
+        height: 13rem;
+        padding-bottom: 1rem;
+    }
 }

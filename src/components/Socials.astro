@@ -3,9 +3,11 @@ import Arrow from "../assets/socials/Arrow.svg"
 import Github from "../assets/socials/github.svg"
 import LinkedIn from "../assets/socials/linkedin.svg"
 import Whatsapp from "../assets/socials/whatsapp.svg"
+import 'aos/dist/aos.css';
+
 ---
 
-<div class="socials">
+<div class="socials"  data-aos="fade-up">
     <a href="https://www.linkedin.com/in/nilce-vila-53231a238/" target="_blank" rel="noopener noreferrer">
         <img src={LinkedIn.src}/>
     </a>
@@ -25,4 +27,19 @@ import Whatsapp from "../assets/socials/whatsapp.svg"
         left: 30px;
         width: 1rem;
     }
+
+    @media screen and (max-width: 700px) {
+        .socials{
+            left: 15px;
+        }
+    }
 </style>
+
+<script>
+    import AOS from "aos";
+
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+</script>

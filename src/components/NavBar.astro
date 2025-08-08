@@ -7,13 +7,13 @@ let currentPath = new URL(Astro.request.url).pathname
 currentPath = currentPath.endsWith('/') ? currentPath : currentPath + '/';
 const currentLang = getLangFromUrl(Astro.url)
 const t = useTranslations(currentLang)
-
 ---
+
 <header>
     <nav>
         <div class="left-info">
             <img src={navLogo.src} alt="logo" width="90rem"/>
-            <div class="options">
+            <div class="options" id="container-menu">
                 <a href="#hero">{t("nav.start")}</a>
                 <a href="#projects">{t("nav.project")}</a>
                 <a href="#abilities">{t("nav.abilities")}</a>
@@ -24,8 +24,36 @@ const t = useTranslations(currentLang)
         <div class="right-info">
             <a href=`/cv/${t('nav.cv')}` download><button>{t("nav.download")}</button></a>
             <LanguagePicker/>
+            <div id="hamburguer" style="width: 40px; height: 40px; cursor: pointer;">
+                <svg id="burger-svg" width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-label="Menu" role="img">
+                    <rect class="line line1" y="14" width="30" height="2.5" rx="2" fill="#222" />
+                    <rect class="line line2" y="22" width="30" height="2.5" rx="2" fill="#222" />
+                    <rect class="line line3" y="30" width="30" height="2.5" rx="2" fill="#222" />
+                </svg>
+            </div>
         </div>
     </nav>
+
+    <script >
+        const burger = document.getElementById('burger-svg');
+        const menuContainer = document.getElementById('container-menu');
+        let open = false;
+
+        burger.addEventListener('click', () => {
+            open = !open;
+            burger.classList.toggle('open', open);
+            menuContainer.classList.toggle('open', open);
+        });
+
+        document.addEventListener('click', (e) => {
+            // Si el menú está abierto y el click NO fue dentro del menú ni en la hamburguesa, cerramos
+            if (open && !menuContainer.contains(e.target) && !burger.contains(e.target)) {
+                open = false;
+                burger.classList.remove('open');
+                menuContainer.classList.remove('open');
+            }
+        });
+    </script>
 </header>
 
 <style>
@@ -44,7 +72,6 @@ const t = useTranslations(currentLang)
         width: 100%;
         display: flex;
         font-family: "MuseoModerno-Light", sans-serif;
-
     }
 
     .left-info{
@@ -78,21 +105,73 @@ const t = useTranslations(currentLang)
         justify-content: end;
         align-items: end;
     }
-</style>
 
-<script>
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     const langIcon = document.getElementById("lang-icon");
-    //     const langMenu = document.getElementById("lang-menu");
+    #hamburguer {
+        display: none;
+    }
+
+    @media (max-width: 700px) {
+        nav {
+            position: relative;
+        }
+
+        #container-menu.open {
+            max-height: 300px;
+        }
+
+        #container-menu a {
+            line-height: 1.5rem;
+        }
+
+        /* Mostrar hamburguesa */
+        #hamburguer {
+            display: block;
+            -webkit-tap-highlight-color: transparent;
+            position: relative; /* para que no se afecte el flujo */
+        }
+
+        .options {
+            display: none;
+            position: absolute;
+            top: 100%; /* justo debajo del nav o hamburguesa */
+            right: 10px; /* o donde quieras alinearlo */
+            background-color: rgba(255 255 255 / 0.9);
+            border-radius: 8px;
+            width: 150px;
+            padding: 0.5rem 0;
+            z-index: 20;
+        }
+
+        .options.open {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+        }
+    }
+
+    /* SVG Hamburguesa */
+    #hamburguer svg {
+        user-select: none;
+    }
     //
-    //     langIcon.addEventListener("click", () => {
-    //         langMenu.classList.toggle("hidden");
-    //     });
-    //
-    //     document.addEventListener("click", (e) => {
-    //         if (!e.target.closest(".lang-switch")) {
-    //             langMenu.classList.add("hidden");
-    //         }
-    //     });
-    // });
-</script>
+    .line {
+        transition: transform 0.4s ease, opacity 0.4s ease;
+        transform-origin: center;
+    }
+
+    .open .line1 {
+        //transform: translateY(9px) rotate(45deg);
+        fill: #F35889;
+    }
+
+    .open .line2 {
+        //opacity: 0;
+        fill: #F35889;
+
+    }
+
+    .open .line3 {
+        fill: #F35889;
+        //transform: translateY(-9px) rotate(-45deg);
+    }
+</style>

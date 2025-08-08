@@ -11,7 +11,8 @@ import syl from "../assets/projects/syl.svg";
 import '../styles/home.css';
 import ScrollTop from "../components/ScrollTop.astro";
 import Socials from "../components/Socials.astro"
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import {getLangFromUrl, useTranslations} from "../i18n/utils";
+import 'aos/dist/aos.css';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const images = [
@@ -40,11 +41,9 @@ const images = [
 <Layout>
     <main>
         <section id="hero">
-            <!--Arreglarlo despues-->
-            <!--<img id="background" src="/img/bg-inicio.png" alt="" fetchpriority="high" />-->
             <div class="shiny">
-                <figure><img src={shiny.src} fetchpriority="high"/></figure>
-                <img src={logo.src} alt="Logo" />
+                <figure data-aos="fade-in"s><img src={shiny.src} fetchpriority="high"/></figure>
+                <img src={logo.src} alt="Logo" class="logo-hero"/>
             </div>
             <h2>{t('hero.title')}</h2>
             <div class="paragraph">
@@ -61,8 +60,8 @@ const images = [
                             <div class="timeline-fill"></div>
                         </div>
                         <div class="timeline-points">
-                            <img src={star.src} class="star-left" width="30"/>
-                            <img src={star.src} class="star-right" width="30"/>
+                            <img src={star.src}  data-aos="fade-in" class="star-left" width="30"/>
+                            <img src={star.src}  data-aos="fade-in" class="star-right" width="30"/>
                             <div class="point active" data-year="2025" data-index="0"></div>
                             <div class="point" data-year="2025" data-index="1"></div>
                             <div class="point" data-year="2024" data-index="2"></div>
@@ -92,10 +91,12 @@ const images = [
                             <div class="project-text">
                                 <h6>2025</h6>
                                 <h3>BLOOMING</h3>
-                                <h6>Angular, Spring Boot, HTML, Tailwind, API Plant.id, PayPal API, OpenStreetAMap API, MariaDb</h6>
+                                <h6>Angular, Spring Boot, HTML, Tailwind, API Plant.id, PayPal API, OpenStreetAMap API,
+                                    MariaDb</h6>
                                 <p>{t('projects.project2')}</p>
                                 <!--Poner flechita-->
-                                <a target="_blank" href="https://github.com/universidad-cenfotec-danta-devs/blooming-api">
+                                <a target="_blank"
+                                   href="https://github.com/universidad-cenfotec-danta-devs/blooming-api">
                                     <button>{t('projects.project2.button')}</button>
                                 </a>
                             </div>
@@ -209,7 +210,7 @@ const images = [
                 <h5>{t('abilities.other')}</h5>
                 <div class="carousel">
                     <div class="carousel-track">
-                        {images.map((url)=>
+                        {images.map((url) =>
                                 <div class="technologies">
                                     <img src={url}/>
                                 </div>
@@ -258,13 +259,14 @@ const images = [
             <h1>{t('contact.title')}</h1>
             <div class="contact-container">
                 <div id="contact-form">
+                    <p>{t('contact.description')}✨</p>
                     <iframe name="dummyframe" id="dummyframe" style="display:none;"></iframe>
                     <form action="https://formsubmit.co/gabyvcc@hotmail.com"
                           id="formulario"
                           method="POST"
                           target="dummyframe"
                           onsubmit="mostrarConfirmacion()">
-                        <input type="hidden" name="_subject" value="Mensaje desde tu portafolio web" />
+                        <input type="hidden" name="_subject" value="Mensaje desde tu portafolio web"/>
                         <input type="text" name="_honey" style="display:none">
                         <input type="hidden" name="_captcha" value="false">
                         <input
@@ -295,6 +297,12 @@ const images = [
 </Layout>
 
 <script>
+    import AOS from "aos";
+
+    AOS.init({
+        duration: 1000,
+        once: false,
+    });
     lottie.loadAnimation({
         container: document.getElementById('lottie-container'),
         renderer: 'svg',
@@ -302,7 +310,7 @@ const images = [
         autoplay: true,
         path: '/img/Empty Notifications.json'
     });
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const points = document.querySelectorAll('.point');
         const projects = document.querySelectorAll('.project');
         const timelineFill = document.querySelector('.timeline-fill');
@@ -323,7 +331,7 @@ const images = [
 
         // Evento click para los puntos del timeline
         points.forEach(point => {
-            point.addEventListener('click', function() {
+            point.addEventListener('click', function () {
                 const index = parseInt(this.getAttribute('data-index'));
                 showProject(index);
             });

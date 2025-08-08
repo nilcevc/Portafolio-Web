@@ -158,7 +158,6 @@ button:hover::before {
     animation: spin 3s linear infinite;
 }
 
-/* === Animación del ángulo === */
 @property --angle {
     syntax: "<angle>";
     inherits: true;
@@ -211,4 +210,27 @@ button disable{
 
 ::-webkit-scrollbar-thumb:hover{
     background: #F35889;
+}
+
+@media screen and (max-width: 860px) {
+    h2{
+        font-size: 30px;
+    }
+
+    h1{
+        font-size: 34px;
+    }
+
+    h4{
+        font-size: 11px !important;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    h4{
+        font-size: 14px;
+    }
+    p, input, textarea, select, button {
+        font-size: 10px;
+    }
 }
