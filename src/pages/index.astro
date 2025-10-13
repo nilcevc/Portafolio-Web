@@ -261,16 +261,17 @@ const images = [
                 <div id="contact-form">
                     <p>{t('contact.description')}✨</p>
                     <iframe name="dummyframe" id="dummyframe" style="display:none;"></iframe>
-                    <button
-                          type="button"
-                          onclick="window.location.href='mailto:gabyvcc@hotmail.com?subject=Mensaje desde tu portafolio web'"
-                    >
-                        {t('contact.button')}
-                    </button>
-
+                    <form>
+                        <button
+                              type="button"
+                              onclick="window.location.href='mailto:gabyvcc@hotmail.com?subject=Mensaje desde tu portafolio web'"
+                        >
+                          {t('contact.button')}
+                        </button>
+                    </form>
                 </div>
                 <div id="cat">
-                    <img src={bgCat.src} alt="cat">
+                    <img src={bgCat.src}>
                     <div id="lottie-container" style="width: 300px; height: 300px;"></div>
                 </div>
             </div>
