@@ -57,7 +57,7 @@ export const ui = {
         'contact.description':"Ready to contribute my skills and continue growing professionally",
         'contact.input': 'Email',
         'contact.textarea': 'Message',
-        'contact.button': 'Send',
+        'contact.button': 'Send email',
     },
     es: {
         // Nav
@@ -101,7 +101,7 @@ export const ui = {
         'contact.description':"Lista para aportar mis habilidades y seguir creciendo profesionalmente",
         'contact.input': 'Correo',
         'contact.textarea': 'Mensaje',
-        'contact.button': 'Enviar',
+        'contact.button': 'Enviar correo',
     },
 };
 
