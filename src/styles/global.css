@@ -170,20 +170,6 @@ button:hover::before {
     }
 }
 
-/*@supports not (background: paint(something)) {*/
-/*    button::before {*/
-/*        background-image: conic-gradient(*/
-/*                #EF2868 80%,*/
-/*                #F6F4F0 88%,*/
-/*                #F6F4F0 92%,*/
-/*                #EF2868 100%*/
-/*        );*/
-/*    }*/
-/*    button:hover::before {*/
-/*        animation: spinFallback 3s linear infinite;*/
-/*    }*/
-/*}*/
-
 @keyframes spinFallback {
     to {
         transform: rotate(360deg);
@@ -223,14 +209,5 @@ button disable{
 
     h4{
         font-size: 11px !important;
-    }
-}
-
-@media screen and (max-width: 1080px) {
-    h4{
-        font-size: 14px;
-    }
-    p, input, textarea, select, button {
-        font-size: 12px;
     }
 }
