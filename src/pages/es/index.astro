@@ -80,7 +80,9 @@ const images = [
                                 <h6>Next.js, Spring Boot, HTML, Tailwind, Typescript, Strapi ...</h6>
                                 <p>{t('projects.project1')}</p>
                                 <!--Poner flechita-->
-                                <button class="disable">{t('projects.project1.button')}</button>
+                                <a target="_blank" href="https://syltravelcr.com/en">
+                                    <button>{t('projects.project3.button')}</button>
+                                </a>
                             </div>
                             <div class="project-img">
                                 <img src={syl.src}>
@@ -114,7 +116,7 @@ const images = [
                                 <h6>Astro, HTML, CSS, JavaScript, React, API Alegra</h6>
                                 <p>{t('projects.project3')}</p>
                                 <!--Poner flechita-->
-                                <a target="_blank" href="https://baula-web-astro.onrender.com/">
+                                <a target="_blank" href="https://www.baulashop.com/">
                                     <button>{t('projects.project3.button')}</button>
                                 </a>
                             </div>
@@ -131,7 +133,7 @@ const images = [
                                 <h6> C#, .NET, SQL Server, HTML, CSS, Google Maps API, Azure</h6>
                                 <p>{t('projects.project4')}</p>
                                 <!--Poner flechita-->
-                                <a target="_blank" href="https://github.com/Getz7/ProyectoExpoCenfo.git">
+                                <a target="_blank" href="https://github.com/Getz7/PetsInn">
                                     <button>{t('projects.project4.button')}</button>
                                 </a>
                             </div>
@@ -264,28 +266,13 @@ const images = [
                 <div id="contact-form">
                     <p>{t('contact.description')}✨</p>
                     <iframe name="dummyframe" id="dummyframe" style="display:none;"></iframe>
-                    <form action="https://formsubmit.co/gabyvcc@hotmail.com"
-                          id="formulario"
-                          method="POST"
-                          target="dummyframe"
-                          onsubmit="mostrarConfirmacion()">
-                        <input type="hidden" name="_subject" value="Mensaje desde tu portafolio web"/>
-                        <input type="text" name="_honey" style="display:none">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input
-                                type="email"
-                                placeholder=`${t('contact.input')}`
-                                name="email"
-                                id="email"
-                                required
-                        />
-                        <textarea
-                                placeholder=`${t('contact.textarea')}`
-                                name="message"
-                                id="message"
-                                required
-                        ></textarea>
-                        <button type="submit">{t('contact.button')}</button>
+                    <form>
+                        <button
+                                type="button"
+                                onclick="window.location.href='mailto:gabyvcc@hotmail.com?subject=Mensaje desde tu portafolio web'"
+                        >
+                            {t('contact.button')}
+                        </button>
                     </form>
                 </div>
                 <div id="cat">
